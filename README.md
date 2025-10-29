@@ -58,7 +58,6 @@ Built with Python, it leverages **YARA** for high-performance signature matching
 ## 🏗️ Architecture Overview
 
 ```mermaid
-graph TD
     graph TD
     subgraph User Interaction
         User(User)
