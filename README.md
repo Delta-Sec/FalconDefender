@@ -59,37 +59,37 @@ Built with Python, it leverages **YARA** for high-performance signature matching
 
 ```mermaid
 graph TD
-    subgraph User Interaction
+    subgraph User_Interaction
         User(User)
-        User -- "falcon.cli tui" --> TUI[TUI (app.py)]
-        User -- "falcon.cli [command]" --> CLI[CLI (cli.py)]
+        User -- "falcon.cli tui" --> TUI[TUI_app_py]
+        User -- "falcon.cli command" --> CLI[CLI_cli_py]
     end
 
-    subgraph System Services (Daemon)
-        Daemon[Falcon Daemon (falcon_daemon.py)]
+    subgraph System_Services_Daemon
+        Daemon[Falcon_Daemon_py]
         Daemon -- "Manages" --> Scheduler[APScheduler]
-        Scheduler -- "Triggers" --> ScanTask(Scheduled Scan)
-        Scheduler -- "Triggers" --> UpdateTask(Scheduled Update)
+        Scheduler -- "Triggers" --> ScanTask[Scheduled_Scan]
+        Scheduler -- "Triggers" --> UpdateTask[Scheduled_Update]
     end
 
-    subgraph Core Components
-        Scanner[Scanner (scanner.py)]
-        YaraManager[Yara Manager (yara_manager.py)]
-        Quarantine[Quarantine Mgr (quarantine.py)]
-        Updater[Updater (updater.py)]
-        ReportMgr[Report Mgr (report.py)]
+    subgraph Core_Components
+        Scanner[Scanner_py]
+        YaraManager[Yara_Manager_py]
+        Quarantine[Quarantine_Manager_py]
+        Updater[Updater_py]
+        ReportMgr[Report_Manager_py]
     end
 
-    subgraph Data Stores
-        Config[config.json]
-        Rules[YARA Rules (.yar)]
-        Cache[Compiled Rules (.yarac)]
-        QuarantineDB[(Quarantine DB<br>quarantine.db)]
-        SchedulerDB[(Scheduler DB<br>scheduler.sqlite)]
+    subgraph Data_Stores
+        Config[config_json]
+        Rules[YARA_Rules_yar]
+        Cache[Compiled_Rules_yarac]
+        QuarantineDB[Quarantine_DB_quarantine_db]
+        SchedulerDB[Scheduler_DB_scheduler_sqlite]
     end
 
     CLI -- "Controls" --> Daemon
-    TUI -- "Controls & Views" --> Daemon
+    TUI -- "Controls_Views" --> Daemon
     CLI -- "Uses" --> Core_Components
     TUI -- "Uses" --> Core_Components
     Daemon -- "Uses" --> Core_Components
@@ -100,12 +100,13 @@ graph TD
 
     Scanner -- "Reads" --> YaraManager
     Scanner -- "Writes" --> Quarantine
-    YaraManager -- "Reads/Writes" --> Rules
-    YaraManager -- "Reads/Writes" --> Cache
+    YaraManager -- "Reads_Writes" --> Rules
+    YaraManager -- "Reads_Writes" --> Cache
     Quarantine -- "Writes" --> QuarantineDB
     Scheduler -- "Writes" --> SchedulerDB
     Core_Components -- "Reads" --> Config
 ```
+
 
 
 ---
