@@ -58,7 +58,7 @@ Built with Python, it leverages **YARA** for high-performance signature matching
 ## 🏗️ Architecture Overview
 
 ```mermaid
-    graph TD
+graph TD
     subgraph User Interaction
         User(User)
         User -- "falcon.cli tui" --> TUI[TUI (app.py)]
@@ -84,15 +84,15 @@ Built with Python, it leverages **YARA** for high-performance signature matching
         Config[config.json]
         Rules[YARA Rules (.yar)]
         Cache[Compiled Rules (.yarac)]
-        QuarantineDB[(Quarantine DB - quarantine.db)]
-        SchedulerDB[(Scheduler DB - scheduler.sqlite)]
+        QuarantineDB[(Quarantine DB<br>quarantine.db)]
+        SchedulerDB[(Scheduler DB<br>scheduler.sqlite)]
     end
 
     CLI -- "Controls" --> Daemon
     TUI -- "Controls & Views" --> Daemon
-    CLI -- "Uses" --> Core Components
-    TUI -- "Uses" --> Core Components
-    Daemon -- "Uses" --> Core Components
+    CLI -- "Uses" --> Core_Components
+    TUI -- "Uses" --> Core_Components
+    Daemon -- "Uses" --> Core_Components
 
     ScanTask -- "Uses" --> Scanner
     ScanTask -- "Uses" --> ReportMgr
@@ -104,9 +104,9 @@ Built with Python, it leverages **YARA** for high-performance signature matching
     YaraManager -- "Reads/Writes" --> Cache
     Quarantine -- "Writes" --> QuarantineDB
     Scheduler -- "Writes" --> SchedulerDB
-    CoreComponents -- "Read" --> Config
-
+    Core_Components -- "Reads" --> Config
 ```
+
 
 ---
 
