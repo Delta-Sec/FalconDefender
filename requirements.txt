@@ -1,0 +1,23 @@
+# ----------------------------------------
+# FalconDefender 2.0.0 - Dependencies
+# ----------------------------------------
+
+# --- Core Engine ---
+# The fundamental YARA library for compiling and matching rules.
+yara-python
+
+# --- Scheduler & Persistence ---
+# The advanced scheduling library for running background tasks (scans, updates).
+APScheduler==3.10.1
+# The database toolkit APScheduler uses to persist (save) jobs across reboots.
+SQLAlchemy==1.4.46
+
+# --- Textual User Interface (TUI) ---
+# The framework for building the interactive Text-based User Interface (app.py).
+textual
+
+# --- Reporting & Networking ---
+# Used for generating professional PDF scan reports.
+reportlab==3.6.13
+# Used for downloading rule/program updates and for API interactions.
+requests
