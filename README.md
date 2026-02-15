@@ -1,9 +1,7 @@
 <div align="end">
-
 <img width="1280" height="242" alt="Untitled design" src="https://github.com/user-attachments/assets/318ad25f-6737-488a-9a3b-2fc72c52aa8a" />
 
 **By Delta Security**
-
 </div>
 
 # 🦅 FalconDefender 2.0.0
